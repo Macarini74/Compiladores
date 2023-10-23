@@ -153,7 +153,7 @@ public class GyhSint {
             termoAritmetico();
             expressaoAritmetica2();
         }else{
-            System.out.println("Erro Sintatico Linha:  " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
             System.exit(0);
         }
     }
