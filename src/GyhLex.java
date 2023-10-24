@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class GyhLex {
     public ArchiveReader rdat;
@@ -7,6 +8,7 @@ public class GyhLex {
 
     private char c;
     private int aux;
+    private char ch;
 
     private int lines = 1;
 
@@ -29,7 +31,6 @@ public class GyhLex {
             if(c == '\n') this.lines += 1;
 
             switch (aux){
-
                 case 1:
                 //Caso padrão para selecionar as condições de tokens
                     switch(c){
@@ -111,9 +112,9 @@ public class GyhLex {
                             this.aux = 47;
                             break;
                         default:
-                            if(Character.isUpperCase(c) || Character.isLetter(c)){
+                            if(Character.isUpperCase(c)){
                                 this.tempString = "";
-                                this.tempString = this.tempString + c;
+                                this.tempString += c;
                                 this.aux = 44;
                             }
                             if(Character.isDigit(c)){
@@ -198,7 +199,7 @@ public class GyhLex {
                             this.aux = 1;
                             this.lineList.add(lines);
                             this.tokenList.add("PCSe");
-                            return (new Token("if", TokenType.PCSe, 1));
+                            return (new Token("if", TokenType.PCSe, this.lines));
                         default:
                             System.out.println("Erro Léxico. i\\n");
                             System.exit(0);
@@ -515,6 +516,7 @@ public class GyhLex {
                     }
                     break;
                 case 38:
+
                     switch (c){
                         case '=':
                             this.aux = 1;
@@ -527,6 +529,7 @@ public class GyhLex {
                             this.lineList.add(lines);
                             return (new Token("OpRelDif", TokenType.OpRelDif, this.lines));
                         case '<':
+                            //System.out.println(this.tempString + "-" + this.c);
                             this.aux = 1;
                             this.tokenList.add("Atrib");
                             this.lineList.add(lines);
@@ -599,19 +602,25 @@ public class GyhLex {
                     break;
                 case 44:
                     if(Character.isLetter(c)){
-                                this.tempString += c;
-                                this.aux = 44;
-                    }else if(!(Character.isLetter(c))){
+                            this.tempString += c;
+                            this.aux = 44;
+
+                }else if(!(Character.isLetter(c))){
+                        if(c == '['){
+                            this.aux = 1;
+                            this.tokenList.add("Var");
+                            this.lineList.add(lines);
+                            this.tokenList.add("IniDelim");
+                            this.lineList.add(lines);
+                        }
                                 this.aux = 1;
                                 this.tokenList.add("Var");
                                 this.lineList.add(lines);
                                 return (new Token(this.tempString, TokenType.Var, this.lines));
                         }
-
                     break;
-
                 case 45:
-                    if(Character.isDigit(c)){
+                     if(Character.isDigit(c)){
                         this.tempString = this.tempString + c;
                         this.aux = 45;
                         break;
@@ -624,7 +633,14 @@ public class GyhLex {
                         this.lineList.add(lines);
                         this.tokenList.add("NumInt");
                         return (new Token(this.tempString, TokenType.NumInt, this.lines));
-                    }
+                    }else if(c == ')'){
+                        this.aux = 1;
+                        this.tokenList.add("NumInt");
+                        this.lineList.add(lines);
+                        this.tokenList.add("FechaPar");
+                        this.lineList.add(lines);
+                        break;
+                }
 
                 case 46:
                     if(Character.isDigit(c)){
@@ -638,9 +654,7 @@ public class GyhLex {
                         return (new Token(this.tempString, TokenType.NumReal, this.lines));
                     }
                 case 47:
-                    c = (char)rdat.readNextChar();
                     if(c == '\n'){
-                        lines++;
                         this.aux = 1;
                         break;
                     }else{
@@ -661,7 +675,6 @@ public class GyhLex {
                     break;
             }
         }
-
             return null;
     }
 }

@@ -8,14 +8,15 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        GyhLex lex = new GyhLex("C:\\Users\\Administrator\\IdeaProjects\\Compiladores\\src\\programa0.gyh");
+        GyhLex lex = new GyhLex(args[0]);
         Token t;
         while((t = lex.nextToken()) != null) {
             System.out.println(t.toString() + " ");
         }
 
         GyhSint sint = new GyhSint(lex.tokenList, lex.lineList);
-        sint.startSint();
+        sint.printTokenList();
+        //sint.startSint();
 
     }
 }

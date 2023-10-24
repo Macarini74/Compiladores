@@ -14,16 +14,16 @@ public class GyhSint {
 
     public void printTokenList(){
         for(int i = 0; i < tokens.size(); i++){
-            System.out.println(tokens.get(i));
+            System.out.println(tokens.get(i) + " " + line.get(i));
         }
     }
-    ///Programa → '[' 'dec'']' ListaDeclaracoes '[' 'prog' ']' ListaComandos;
+    //Programa → '[' 'dec'']' ListaDeclaracoes '[' 'prog' ']' ListaComandos;
     public void startSint(){
         if(this.tokens.get(0).equals("IniDelim")){
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -31,7 +31,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -39,7 +39,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -49,21 +49,21 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
         if(this.tokens.get(index).equals("PCProg")){
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
         if(this.tokens.get(index).equals("FimDelim")){
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
         listaComandos();
@@ -82,7 +82,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -91,7 +91,7 @@ public class GyhSint {
             index++;
             tipoVar();
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -101,7 +101,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -125,7 +125,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
     }
@@ -143,7 +143,7 @@ public class GyhSint {
             termoAritmetico();
             expressaoAritmetica2();
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -153,7 +153,7 @@ public class GyhSint {
             termoAritmetico();
             expressaoAritmetica2();
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
     }
@@ -171,7 +171,7 @@ public class GyhSint {
             fatorAritmetico();
             termoAritmetico2();
         }else {
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -181,7 +181,7 @@ public class GyhSint {
             fatorAritmetico();
             termoAritmetico2();
         }else {
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
     }
@@ -198,7 +198,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -210,7 +210,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
         }
     }
 
@@ -249,7 +249,7 @@ public class GyhSint {
                         expressaoAritmetica();
                         break;
                     default:
-                        System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+                        System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
                         System.exit(0);
                 }
                 break;
@@ -276,7 +276,7 @@ public class GyhSint {
                             System.out.println("Token: " + this.tokens.get(index) + "\n");
                             index++;
                         }else{
-                            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+                            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
                             System.exit(0);
                         }
                 }
@@ -292,7 +292,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
     }
@@ -333,7 +333,7 @@ public class GyhSint {
         }else if(this.tokens.get(index).equals("PCIni")){
             subAlgoritmo();
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -345,7 +345,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else {
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -353,7 +353,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -366,7 +366,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -374,7 +374,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -386,7 +386,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -394,7 +394,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -402,7 +402,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -414,7 +414,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -424,7 +424,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -439,7 +439,7 @@ public class GyhSint {
             index++;
             comando();
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -451,7 +451,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -461,7 +461,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -475,7 +475,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
@@ -485,7 +485,7 @@ public class GyhSint {
             System.out.println("Token: " + this.tokens.get(index) + "\n");
             index++;
         }else{
-            System.out.println("Erro Sintatico Linha: " + this.line.get(index) + "\n");
+            System.out.println("Erro Sintatico Linha: " + this.line.get(index) +  "Token: " + this.tokens.get(index) + "\n");
             System.exit(0);
         }
 
