@@ -15,8 +15,7 @@ public class Main {
         }
 
         GyhSint sint = new GyhSint(lex.tokenList, lex.lineList);
-        sint.printTokenList();
-        //sint.startSint();
-
+        //sint.printTokenList();
+        sint.startSint();
     }
 }
