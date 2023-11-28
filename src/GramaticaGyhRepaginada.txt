@@ -1,0 +1,41 @@
+Programa → '[' 'dec'']' ListaDeclaracoes '[' 'prog' ']' ListaComandos;
+ 
+ListaDeclaracoes → Declaracao ListaDeclaracoes'';
+ListaDeclaracoes'' → ListaDeclaracoes| simboloVazio ;
+ 
+Declaracao → VARIAVEL '[' TipoVar ']';
+ 
+TipoVar → 'integer' | 'float';
+ 
+ExpressaoAritmetica → TermoAritmetico ExpressaoAritmetica'' ;
+ExpressaoAritmetica'' → '+' TermoAritmetico ExpressaoAritmetica''|'-' TermoAritmetico ExpressaoAritmetica''| simboloVazio ;
+
+TermoAritmetico → FatorAritmetico TermoAritmetico'';
+TermoAritmetico'' → '*' FatorAritmetico TermoAritmetico''|'/' FatorAritmetico TermoAritmetico'' | simboloVazio ;
+ 
+FatorAritmetico → NUMINT| NUMREAL | VARIAVEL | '(' ExpressaoAritmetica ')' ;
+ 
+ExpressaoRelacional → TermoRelacional ExpressaoRelacional'';
+ExpressaoRelacional'' → OperadorBooleano TermoRelacional ExpressaoRelacional'' | simboloVazio ;
+ 
+TermoRelacional → ExpressaoAritmetica OP_REL ExpressaoAritmetica | '(' ExpressaoRelacional ')';
+ 
+OperadorBooleano → 'or' | 'and';
+ 
+ListaComandos → Comando ListaComandos'' ;
+ListaComandos'' → ListaComandos| simboloVazio ;
+ 
+Comando → ComandoAtribuicao | ComandoEntrada | ComandoSaida | ComandoCondicao | ComandoRepeticao | SubAlgoritmo;
+ 
+ComandoAtribuicao → VARIAVEL '<<' ExpressaoAritmetica;
+ 
+ComandoEntrada → 'read' VARIAVEL;
+ 
+ComandoSaida → 'print'  VARIAVEL | 'print' CADEIA;
+
+ComandoCondicao → 'if' ExpressaoRelacional 'then' Comando ComandoCondicao'' ;
+Comando ComandoCondicao'' → 'else' Comando | simboloVazio ;
+ 
+ComandoRepeticao → 'while' ExpressaoRelacional 'then' Comando;
+ 
+SubAlgoritmo → 'start' ListaComandos 'end';
